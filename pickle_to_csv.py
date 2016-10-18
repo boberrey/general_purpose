@@ -28,6 +28,8 @@ def main():
 	group = parser.add_argument_group('optional arguments')
 	group.add_argument('-od','--output_directory', default="",
 	                    help='output directory for the new csv. Default is same directory as pickle file.')
+	group.add_argument('-fn','--filename', default="",
+	                    help='filename for the new csv file. Default is the old file name.')
 	if not len(sys.argv) > 1:
 		parser.print_help()
 		sys.exit()
@@ -42,13 +44,17 @@ def main():
 		output_dir = args.output_directory
 
 	# Prepare new file name
-	filename = os.path.splitext(os.path.basename(args.pickle_file))[0] + ".csv"
+	filename = ""
+	if args.filename == "":
+		filename = os.path.splitext(os.path.basename(args.pickle_file))[0] + ".csv"
+	else:
+		filename = args.filename
 
 	# Read data in
 	df = pd.read_pickle(args.pickle_file)
 
 	# Print data out
-	df.to_csv(output_dir + filename)
+	df.to_csv(output_dir + "/" + filename)
 
 
 
