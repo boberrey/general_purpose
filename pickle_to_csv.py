@@ -14,6 +14,7 @@ Ben Ober-Reynolds, boberrey@stanford.edu
 
 import pandas as pd
 import argparse
+import os
 import sys
 
 def main():
