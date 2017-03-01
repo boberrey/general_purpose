@@ -54,7 +54,7 @@ def main():
 	df = pd.read_pickle(args.pickle_file)
 
 	# Print data out
-	df.to_csv(output_dir + "/" + filename)
+	df.to_csv(output_dir + "/" + filename, sep='\t')
 
 
 

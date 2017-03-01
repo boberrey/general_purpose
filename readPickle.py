@@ -34,7 +34,7 @@ def main():
 	df = pd.read_pickle(args.pickle_file)
 
 	# Print data out
-	df.to_csv(sys.stdout, sep="\t")
+	df.to_csv(sys.stdout, sep="\t", na_rep='NA')
 
 
 
